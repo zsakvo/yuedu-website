@@ -1,0 +1,1082 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>bookSource</title>
+<style>
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+body {
+  background-color: white;
+}
+
+.markdown-body {
+  min-width: 200px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px;
+
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;;word-wrap: break-word; word-break: break-all;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .anchor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body .highlight {
+  background: #fff;
+}
+
+.markdown-body .highlight .mf,
+.markdown-body .highlight .mh,
+.markdown-body .highlight .mi,
+.markdown-body .highlight .mo,
+.markdown-body .highlight .il,
+.markdown-body .highlight .m {
+  color: #945277;
+}
+
+.markdown-body .highlight .s,
+.markdown-body .highlight .sb,
+.markdown-body .highlight .sc,
+.markdown-body .highlight .sd,
+.markdown-body .highlight .s2,
+.markdown-body .highlight .se,
+.markdown-body .highlight .sh,
+.markdown-body .highlight .si,
+.markdown-body .highlight .sx,
+.markdown-body .highlight .s1 {
+  color: #df5000;
+}
+
+.markdown-body .highlight .kc,
+.markdown-body .highlight .kd,
+.markdown-body .highlight .kn,
+.markdown-body .highlight .kp,
+.markdown-body .highlight .kr,
+.markdown-body .highlight .kt,
+.markdown-body .highlight .k,
+.markdown-body .highlight .o {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .kt {
+  color: #458;
+}
+
+.markdown-body .highlight .c,
+.markdown-body .highlight .cm,
+.markdown-body .highlight .c1 {
+  color: #998;
+  font-style: italic;
+}
+
+.markdown-body .highlight .cp,
+.markdown-body .highlight .cs {
+  color: #999;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .cs {
+  font-style: italic;
+}
+
+.markdown-body .highlight .n {
+  color: #333;
+}
+
+.markdown-body .highlight .na,
+.markdown-body .highlight .nv,
+.markdown-body .highlight .vc,
+.markdown-body .highlight .vg,
+.markdown-body .highlight .vi {
+  color: #008080;
+}
+
+.markdown-body .highlight .nb {
+  color: #0086B3;
+}
+
+.markdown-body .highlight .nc {
+  color: #458;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .no {
+  color: #094e99;
+}
+
+.markdown-body .highlight .ni {
+  color: #800080;
+}
+
+.markdown-body .highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .nf {
+  color: #945277;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .nn {
+  color: #555;
+}
+
+.markdown-body .highlight .nt {
+  color: #000080;
+}
+
+.markdown-body .highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+
+.markdown-body .highlight .gd {
+  color: #000;
+  background-color: #fdd;
+}
+
+.markdown-body .highlight .gd .x {
+  color: #000;
+  background-color: #faa;
+}
+
+.markdown-body .highlight .ge {
+  font-style: italic;
+}
+
+.markdown-body .highlight .gr {
+  color: #aa0000;
+}
+
+.markdown-body .highlight .gh {
+  color: #999;
+}
+
+.markdown-body .highlight .gi {
+  color: #000;
+  background-color: #dfd;
+}
+
+.markdown-body .highlight .gi .x {
+  color: #000;
+  background-color: #afa;
+}
+
+.markdown-body .highlight .go {
+  color: #888;
+}
+
+.markdown-body .highlight .gp {
+  color: #555;
+}
+
+.markdown-body .highlight .gs {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+.markdown-body .highlight .gt {
+  color: #aa0000;
+}
+
+.markdown-body .highlight .ow {
+  font-weight: bold;
+}
+
+.markdown-body .highlight .w {
+  color: #bbb;
+}
+
+.markdown-body .highlight .sr {
+  color: #017936;
+}
+
+.markdown-body .highlight .ss {
+  color: #8b467f;
+}
+
+.markdown-body .highlight .bp {
+  color: #999;
+}
+
+.markdown-body .highlight .gc {
+  color: #999;
+  background-color: #EAF2F5;
+}
+
+.markdown-body .octicon {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  float: left;
+  margin: 0.3em 0 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+
+
+
+</style>
+
+<style> @media print{ code[class*="language-"],pre[class*="language-"]{overflow: visible; word-wrap: break-word !important;} }</style></head><body><div class="markdown-body">
+<h1 id="toc_0">书源制作教程</h1>
+
+<blockquote>
+<p>第三方教程：<br/>
+<a href="https://www.hostfans.cn/make-course">https://www.hostfans.cn/make-course</a><br/>
+<a href="https://www.52pojie.cn/thread-758541-1-1.html">https://www.52pojie.cn/thread-758541-1-1.html</a></p>
+</blockquote>
+
+<h1 id="toc_1">规则更新日志</h1>
+
+<h2 id="toc_2">2.18.120813 版本：</h2>
+
+<ul>
+<li><p>支持 XPath 语法, 以 @XPath: 开头, 语法见 <code>http://www.w3school.com.cn/xpath/index.asp</code></p></li>
+<li><p>支持 JSonPath 语法, 以 @JSon: 开头, 语法见 <code>https://blog.csdn.net/koflance/article/details/63262484</code></p></li>
+<li><p>XPath 语法测试地址 <code>http://www.bejson.com/testtools/xpath/</code> </p></li>
+<li><p>JSonPath 语法测试地址 <code>http://jsonpath.herokuapp.com</code></p></li>
+<li><p>支持用 js 处理结果, 以 @js: 开头, 结果变量为 result 如 </p></li>
+</ul>
+
+<p><code>@JSon:$.link@js:&quot;http://chapterup.zhuishushenqi.com/chapter/&quot; + encodeURIComponent(result)</code></p>
+
+<ul>
+<li><p><em>注意</em> JSon 的值如果不是 String, 用 js 处理时需自己进行类型转换</p></li>
+<li><p><em>注意</em> <code>#</code>替换规则在新语法下无法使用, 新的语法用 js 处理结果</p></li>
+<li><p>原有的规则不变, 见下方</p></li>
+</ul>
+
+<h1 id="toc_3">书源规则说明</h1>
+
+<ul>
+<li><p>书源规则基于 HTML 标记, 如 class,id,tag 等</p></li>
+<li><p>想要写规则先要打开网页源代码, 在里面找到想要获取内容对应的标签</p></li>
+<li><p>Chrome 可以在网页上右击点击检查可以方便的查看标签</p></li>
+</ul>
+
+<h1 id="toc_4">基本写法</h1>
+
+<h2 id="toc_5">基本规则</h2>
+
+<ul>
+<li><p><code>@</code>为分隔符, 用来分隔获取规则</p></li>
+<li><p>每段规则可分为 <strong>3</strong> 段</p></li>
+<li><p>第一段是类型, 如 <code>class,id,tag,text,children</code> 等, <code>children</code> 获取所有子标签, 不需要第二段和第三段, <code>text</code> 可以根据文本内容获取</p></li>
+<li><p>第二段是名称, <code>text</code> 第二段为文本内容的一部分</p></li>
+<li><p>第三段是位置, <code>class,tag</code> 会获取到多个, 所以要加位置, <code>id</code> 类型不要加</p></li>
+<li><p>如不加位置会获取所有</p></li>
+<li><p>位置正数从 0 开始, 0 是第一个, 如为负数则是取倒数的值, -1 为最倒数第一个,-2 为倒数第二个</p></li>
+<li><p><code>!</code> 是排除, 有些位置不符合需要排除用<code>!</code>, 后面的序号用: 隔开 0 是第 1 个, 负数为倒数序号,-1 最后一个,-2 倒数第 2 个, 依次</p></li>
+<li><p>获取列表的最前面加上负号 <code>-</code> 可以使列表倒置, 有些网站目录列表是倒的, 前面加个负号可变为正的</p></li>
+<li><p><code>@</code> 的最后一段为获取内容, 如 <code>text,textNodes,href,src,html</code> 等</p></li>
+<li><p>如果有不同网页的规则可以用 <code>| 或 &amp; 分隔 或 %</code></p></li>
+<li><p><code>|</code> 会以第一个取到值的为准</p></li>
+<li><p><code>&amp;</code> 会合并所有规则取到的值</p></li>
+<li><p><code>%</code> 会依次取数, 如三个列表, 先取列表 1 的第一个, 再取列表 2 的第一个, 再取列表 3 的第一个, 再取列表 1 的第 2 个.......</p></li>
+<li><p><del>如需要正则替换在最后加上 #正则表达式 #替换为</del></p></li>
+<li><p><del>例:class.odd.0@tag.a.0@text|tag.dd.0@tag.h1@text# 全文阅读</del></p></li>
+<li><p><del>例:class.odd.0@tag.a.0@text&amp;tag.dd.0@tag.h1@text# 全文阅读</del></p></li>
+</ul>
+
+<h2 id="toc_6">名词解释</h2>
+
+<ul>
+<li><p>BookSourceUrl 书源网址</p></li>
+<li><p>BookSourceName 书源名称</p></li>
+<li><p>BookSourceGroup 书源分组</p></li>
+<li><p>RuleSearchUrl 搜索网址</p>
+<blockquote>
+<p>例:<code>http://www.gxwztv.com/search.htm?keyword=searchKey&amp;pn=searchPage-1</code></p>
+<p><code>?</code> 为 <code>get</code>，<code>@</code>为 <code>post</code></p>
+<p><code>searchKey</code> 为关键字标识, 运行时会替换为搜索关键字,</p>
+<p><code>searchPage</code> 为搜索页数, 从 0 开始的用 <code>searchPage-1</code></p>
+<p>page 规则还可以写成 <code>{index（第一页</code>）, <code>indexSecond（第二页）</code>, <code>indexThird（第三页）</code>, <code>index-searchPage+1</code> 或 <code>index-searchPage-1</code> 或 <code>index-searchPage}</code></p>
+<p>要添加转码编码在最后加 <code>|char=gbk</code></p>
+<p><code>|char=escape</code> 会模拟 <em>js escape</em> 方法进行编码</p>
+</blockquote></li>
+<li><p>ruleFindUrl 发现规则</p>
+<blockquote>
+<p>发现规则分为两段, 名称和 url 用:: 分开, 如</p>
+<p><code>起点风云榜::https://www.qidian.com/rank/yuepiao?page=searchPage</code></p>
+<p>url 规则和搜索规则一样, 多个规则用 &amp;&amp; 或换行分开, 如</p>
+<p><code>起点风云榜::https://www.qidian.com/rank/yuepiao?page=searchPage&amp;&amp; 原创风云榜::https://www.qidian.com/rank/yuepiao?style=1&amp;page=searchPage</code></p>
+<p>也可以每行写一个, 域名可以省略, 如省略会调用书源域名</p>
+<p><code>起点风云榜::/rank/yuepiao?page=searchPage</code><br/>
+<code>原创风云榜::/rank/yuepiao?style=1&amp;page=searchPage</code></p>
+</blockquote></li>
+<li><p>RuleSearchList 搜索列表</p>
+<blockquote>
+<p>例: <code>class.list-group-item!0:%</code></p>
+</blockquote></li>
+<li><p>RuleSearchAuthor 搜索里的作者</p>
+<blockquote>
+<p>例: <code>class.col-xs-2.0@text</code></p>
+</blockquote></li>
+<li><p>RuleSearchKind 搜索里的类型</p>
+<blockquote>
+<p>例: <code>class.col-xs-1.0@text</code></p>
+</blockquote></li>
+<li><p>RuleSearchLastChapter 搜索里的最新章节</p>
+<blockquote>
+<p>例:<code>class.col-xs-4.0@tag.a.0@text</code></p>
+</blockquote></li>
+<li><p>RuleSearchName 获取搜索里的书名</p>
+<blockquote>
+<p>例:<code>class.col-xs-3.0@tag.a.0@text</code></p>
+</blockquote></li>
+<li><p>RuleSearchNoteUrl 搜索里的书链接</p>
+<blockquote>
+<p>例:<code>class.col-xs-3.0@tag.a.0@href</code></p>
+</blockquote></li>
+<li><p>RuleSearchCoverUrl 搜索里的书封面</p>
+<blockquote>
+<p>例: tag.img.0@src</p>
+</blockquote></li>
+<li><p>RuleBookUrlPattern 书籍页面里的 URL 正则</p>
+<blockquote>
+<p>例: <code>https?://www.piaotian.com/bookinfo/.*&quot;</code></p>
+</blockquote></li>
+<li><p>RuleBookName 书籍页面里的书名称</p>
+<blockquote>
+<p>例: class.active.0@text</p>
+</blockquote></li>
+<li><p>RuleBookAuthor 书籍页面里的作者</p>
+<blockquote>
+<p>例:<code>class.col-xs-12.0@tag.small.0@text</code></p>
+</blockquote></li>
+<li><p>RuleIntroduce 书籍页面里的简介</p>
+<blockquote>
+<p>例: <code>class.panel panel-default mt20.0@id.shot@text</code></p>
+</blockquote></li>
+<li><p>RuleCoverUrl 书籍页面里的封面</p>
+<blockquote>
+<p>例:<code>class.panel-body.0@class.img-thumbnail.0@src</code></p>
+</blockquote></li>
+<li><p>RuleBookKind 书籍页面里的分类</p>
+<blockquote>
+<p>例:<code>id.centerm@tag.td.3@text#.*：</code></p>
+</blockquote></li>
+<li><p>RuleBookLastChapter 书籍页面里的最新章节</p>
+<blockquote>
+<p>例 <code>class.grid.0@tag.td.0@tag.a@text</code></p>
+</blockquote></li>
+<li><p>RuleChapterUrl 书籍页面里的目录地址</p>
+<blockquote>
+<p>如果目录地址和书籍地址一样则留空</p>
+<p>例: <code>class.list-group-item tac.0@tag.a.0@href</code></p>
+</blockquote></li>
+<li><p>RuleChapterUrlNext 目录页面里的下一页目录地址</p>
+<blockquote>
+<p>如果没有下一页则留空</p>
+<p>例: <code>class.page.0@text.下一页.0@href</code> 也可以获取所有目录页 &gt;url 的列表, 会依次获取</p>
+<p>例:<code>class.chapter.0@tag.a@href (class.chapter.0)</code> 里包含第 1 页第 2 页第三页等</p>
+</blockquote></li>
+<li><p>RuleChapterList 目录页面的目录列表</p>
+<blockquote>
+<p>前面加 - 号倒序排列</p>
+<p>例:<code>id.chapters-list@tag.a</code></p>
+<p>例:<code>-id.chapters-list@tag.a</code></p>
+</blockquote></li>
+<li><p>RuleChapterName 目录列表的章节名称</p>
+<blockquote>
+<p>例: <code>text</code></p>
+</blockquote></li>
+<li><p>RuleContentUrl 目录列表的章节链接</p>
+<blockquote>
+<p>例: <code>href</code></p>
+</blockquote></li>
+<li><p>RuleBookContent 章节内容</p>
+<blockquote>
+<p>例: <code>id.txtContent@textNodes</code></p>
+<p>如需获取 AJAX 动态内容前面加 <code>$</code></p>
+<p>例:<code>$id.txtContent@textNodes</code></p>
+</blockquote></li>
+</ul>
+
+</div></body>
+
+</html>
