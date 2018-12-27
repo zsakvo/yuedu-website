@@ -15,6 +15,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import copy from "copy-to-clipboard";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
+import HttpUtil from "../utils/HttpUtil";
+
 var QRCode = require("qrcode.react");
 
 const styles = theme => ({
@@ -104,7 +106,7 @@ const styles = theme => ({
 });
 
 class TextFields extends React.Component {
-  state = { open: false, bookSource: "", scroll: "paper" };
+  state = { open: false, bookSource: "", scroll: "paper", bookSourceUrl: "" };
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -120,6 +122,9 @@ class TextFields extends React.Component {
   };
 
   buildJson = () => {
+    this.setState({
+      fabDisabled: true
+    });
     var json = {};
     var bookSourceName = this.bookSourceName.value;
     var bookSourceGroup = this.bookSourceGroup.value;
@@ -179,8 +184,52 @@ class TextFields extends React.Component {
     json.ruleContentUrl = ruleContentUrl;
     json.ruleContentUrlNext = ruleContentUrlNext;
     json.ruleBookContent = ruleBookContent;
-    this.setState({ bookSource: JSON.stringify(json) });
-    this.handleClickOpen();
+    HttpUtil.post("/createQr", "type=book&json=" + JSON.stringify(json))
+      .then(data => {
+        console.log(data);
+        console.log(data.result);
+        console.log(data.id);
+        if (data.result === "success") {
+          this.setState(
+            {
+              fabDisabled: false,
+              dialogTitle: "生成完毕",
+              qrShow: "block",
+              bookSource: JSON.stringify(json),
+              bookSourceUrl: "http://qr.daguduiyuan.xyz/getJson?id=" + data.id
+            },
+            () => {
+              this.handleClickOpen();
+            }
+          );
+        } else {
+          this.setState(
+            {
+              fabDisabled: false,
+              dialogTitle: "活码生成失败",
+              qrShow: "none",
+              bookSource: JSON.stringify(json)
+            },
+            () => {
+              this.handleClickOpen();
+            }
+          );
+        }
+      })
+      .catch(exception => {
+        console.log(exception);
+        this.setState(
+          {
+            fabDisabled: false,
+            dialogTitle: "活码生成失败",
+            qrShow: "none",
+            bookSource: JSON.stringify(json)
+          },
+          () => {
+            this.handleClickOpen();
+          }
+        );
+      });
   };
 
   render() {
@@ -193,6 +242,7 @@ class TextFields extends React.Component {
           aria-label="Edit"
           className={classes.fab}
           onClick={this.buildJson}
+          disabled={this.state.fabDisabled}
         >
           <Icon>
             <CheckIcon />
@@ -439,9 +489,12 @@ class TextFields extends React.Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle>{"生成完毕"}</DialogTitle>
-          <DialogContent className={classes.qrContent}>
-            <QRCode value={this.state.bookSource} size={200} />
+          <DialogTitle>{this.state.dialogTitle}</DialogTitle>
+          <DialogContent
+            className={classes.qrContent}
+            display={this.state.qrShow}
+          >
+            <QRCode value={this.state.bookSourceUrl} size={200} />
           </DialogContent>
           <DialogActions>
             <Button onClick={this.copySource} color="primary">

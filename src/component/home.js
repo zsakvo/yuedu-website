@@ -242,7 +242,7 @@ class home extends React.Component {
               </Typography>
               <Typography
                 className={classes.detailTypography}
-                variant="h7"
+                variant="subtitle1"
                 align="left"
               >
                 点击直接打开书架，无广告，无多余功能。拒绝各种附加服务的打扰，只为阅读文字而生
@@ -263,7 +263,7 @@ class home extends React.Component {
               </Typography>
               <Typography
                 className={classes.detailTypography}
-                variant="h7"
+                variant="subtitle1"
                 align="left"
               >
                 6.41MB
@@ -285,7 +285,7 @@ class home extends React.Component {
               </Typography>
               <Typography
                 className={classes.detailTypography}
-                variant="h7"
+                variant="subtitle1"
                 align="left"
               >
                 从多个网站获取最新的书籍排行信息，力求提供最全面、最真实的排名资讯，茫茫书海，任你遨游。
@@ -306,7 +306,7 @@ class home extends React.Component {
               </Typography>
               <Typography
                 className={classes.detailTypography}
-                variant="h7"
+                variant="subtitle1"
                 align="left"
               >
                 拥有由爱好者共同分享维护的数百个书源，覆盖网文，出版书，轻小说等各个类型的书籍，一个软件，全网通吃
@@ -327,7 +327,7 @@ class home extends React.Component {
               </Typography>
               <Typography
                 className={classes.detailTypography}
-                variant="h7"
+                variant="subtitle1"
                 align="left"
               >
                 书源引擎支持 css select，JsonPath，XPath
@@ -350,7 +350,7 @@ class home extends React.Component {
               </Typography>
               <Typography
                 className={classes.detailTypography}
-                variant="h7"
+                variant="subtitle1"
                 align="left"
               >
                 从字体到间距，从阅读背景到翻页动画，均可自行设定相关参数，适合自己的才是最好的。
